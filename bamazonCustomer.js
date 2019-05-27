@@ -48,12 +48,12 @@ var queryUser = function(){
       {
         name: "itemID",
         type: "input",
-        message: "ID# of the product to puchase?"
+        message: "ID# of the product to purchase?"
       },
       {
         name: "quantity",
         type: "input",
-        message: "How many would you like to purcase?"
+        message: "How many would you like to purchase?"
       }
       
     ]).then(function(response){
@@ -70,7 +70,7 @@ var checkIfInStock = function(id,amt){
     function(error, response) {
         // console.log (response);
         console.log(" |["+response[0].id + " ]|[  " + response[0].product_name + " ]|[ " + response[0].price + " ]| ");
-        if (response[0].in_stock - amt <= 0){
+        if (response[0].in_stock - amt < 0){
             console.log("Insufficient Stock. We have only have " +response[0].in_stock+ " remaining.\r\n");
             //since out of stock why not restart and let them try again
             displayItems();
@@ -78,10 +78,27 @@ var checkIfInStock = function(id,amt){
         else {
             console.log ("Purchase complete");
             // code to reduce stock here
+            updateStock(response[0].id,response[0].in_stock-amt);
         }
     });
 }
 
 var updateStock = function(id, amt){
-    
+    connection.query(
+        "UPDATE products SET ? WHERE ?",
+        [
+          {
+            in_stock: amt
+          },
+          {
+            id: id
+          }
+        ],
+        function(error) {
+          if (error) throw error;
+          console.log("Stock updated..");
+          displayItems();
+        }
+      );
+
 }
