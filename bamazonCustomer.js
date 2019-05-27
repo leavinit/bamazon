@@ -30,11 +30,11 @@ var connection = mysql.createConnection({
 
 var displayItems = function(){
     connection.query("SELECT * FROM products", function(error, response) {
-        console.log("\r\n====================================");
+        console.log("\r\n================================================================");
         for (var i = 0; i < response.length; i++) {
-          console.log(" |["+response[i].id + " ]|[  " + response[i].product_name + " ]|[ " + response[i].price + " ]| ");
+          console.log(" |[     "+response[i].id + "\t]|[  " + response[i].product_name + " \t\t]|[ " + response[i].price + " ]| ");
         }
-        console.log("====================================\r\n");
+        console.log("================================================================\r\n");
         //items displayed, now ask user which item and how many to buy
         queryUser();
     });
