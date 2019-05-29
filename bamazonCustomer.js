@@ -81,6 +81,7 @@ var queryUser = function(){
 
 }
 
+
 var checkIfDone = function(){
   //Check if the user wants to make another purchase
   inquirer
