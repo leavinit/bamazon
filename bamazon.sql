@@ -14,14 +14,14 @@ CREATE TABLE products (
 INSERT INTO products (product_name, dept_name, price, in_stock)
 VALUES ("Razor", "Bath Goods", 20.99, 500),
 	("Bicylcle", "Outdoor", 200.99, 1000),
-    ("Baseball Bat", "Sports", 45.81, 200),
-    ("Sports Car", "Vehicles", 35000.22, 10),
+    ("Baseball", "Sports", 45.81, 200),
+    ("Big Truck", "Vehicles", 35000.22, 10),
     ("Laptop PC", "Office", 299.87, 100),
-    ("Leather Football", "Sports", 40.01, 300),
-    ("Paperweight", "Office", 30.99, 125),
-    ("Toothbrush", "Bath Goods", 1.99, 100),
+    ("Football", "Sports", 40.01, 300),
+    ("Pen", "Office", 30.99, 125),
+    ("Hair Ties", "Beauty", 1.99, 100),
     ("Sedan", "Vehicles", 19999.99, 45),
-    ("Crazy Neon Wig", "Head things", 99.97, 10000)
+    ("Neon Wig", "Head things", 99.97, 10000)
     
 
 
